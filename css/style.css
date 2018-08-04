@@ -1,5 +1,6 @@
 body{
-  background-color: #e9d2f4;
+  background-color: #0a6bbc;
+;
 }
 #page-header{
   border-style: solid;
@@ -25,9 +26,9 @@ input[type="text"]{
 }
 
 input[type="submit"]{
-  background-color: #1446a0;
+  background-color: #0a6bbc;
   border-radius: 1px;
-  border-color: #1446a0;
+  border-color: #0a6bbc;
   color: white;
   width: 80px;
   height: 25px;
@@ -61,7 +62,20 @@ input[type="submit"]{
 }
 
 #footer1{
+  text-align: center;
   border-top: solid;
   border-width: thin;
   margin-top: 10px;
+  border-style: solid;
+  border-width: thin;
+  background-color: #f5ce00;
+  font-family: sans-serif;
+}
+
+
+.fancy {
+  background-color: #d7d4dd;
+  width: 1220px;
+  margin: 50px auto;
+  border-width: 10px;
 }
