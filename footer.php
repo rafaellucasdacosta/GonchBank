@@ -1,4 +1,4 @@
 <footer id="footer">
   <div id="footer1">
-   (c) 2018 - Grupo 3 - Todos os direitos reservados </div>
+    Copyright (c) 2018 Copyright Holder All Rights Reserved. </div>
 </footer>
