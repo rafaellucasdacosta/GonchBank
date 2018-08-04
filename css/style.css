@@ -81,3 +81,15 @@ input[type="submit"]{
   margin: 50px auto;
   border: 3px solid;
 }
+
+
+input[name="btnCadastro"]{
+  background-color: #0a6bbc;
+  border-radius: 1px;
+  border-color: #0a6bbc;
+  color: white;
+  width: 80px;
+  height: 25px;
+  cursor: pointer;
+  float: right;
+}

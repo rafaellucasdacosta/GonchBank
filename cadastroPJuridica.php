@@ -17,11 +17,11 @@
     <br>Nome Fantasia <input type="text" id="nomeFantasia" ><br>
     <br>CNPJ: <input type="text" id="cpf" ><br>
     <br>Endereço: <input type="text" id="endereco" ><br>
-    <br>Bairro: <input type="Bairro" id="bairro"><br>
+    <br>Bairro: <input type="text" id="bairro"><br>
     <br>Telefone (Fixo):<input type="text" id="telefoneFixo" > Telefone (Celular):  <input type="text" id="telefoneCelular"><br>
     <br>E-mail: <input type="email"><br><br>
 
-  <input type="submit" value="Cadastrar" style="float: left" />
+  <input type="submit" value="Cadastrar" name="btnCadastro" />
   </fieldset>
   </div>
 
