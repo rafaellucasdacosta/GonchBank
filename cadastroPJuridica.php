@@ -21,7 +21,7 @@
     <br>Telefone (Fixo):<input type="text" id="telefoneFixo" > Telefone (Celular):  <input type="text" id="telefoneCelular"><br>
     <br>E-mail: <input type="email"><br><br>
 
-    <input type="submit" value="Cadastrar" />
+  <input type="submit" value="Cadastrar" style="float: left" />
   </fieldset>
   </div>
 

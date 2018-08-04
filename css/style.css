@@ -1,5 +1,7 @@
 body{
   background-color: #0a6bbc;
+  font-style: normal;
+  font-family: sans-serif;
 ;
 }
 #page-header{
@@ -77,5 +79,5 @@ input[type="submit"]{
   background-color: #d7d4dd;
   width: 1220px;
   margin: 50px auto;
-  border-width: 10px;
+  border: 3px solid;
 }
