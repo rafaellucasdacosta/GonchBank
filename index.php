@@ -9,8 +9,8 @@
 <main>
   <body>
     <div class="slide">
-      <img class="mySlides" src="comprando-carro-fechando-negocio.jpg">
-      <img class="mySlides" src="financiamento-imobiliario-2.jpg">
+      <img class="mySlides" src="http://clickcatarina.com/wp-content/uploads/2015/05/comprando-carro-fechando-negocio.jpg">
+      <img class="mySlides" src="http://rezendeadministradora.com.br/wp-content/uploads/2017/03/financiamento-imobiliario-2.jpg">
 
       <script>
       var slideIndex = 0;
