@@ -17,15 +17,15 @@
 
     <fieldset><h2> Cadastro de Clientes Pessoa Física</h2>
 
-    <br>Nome Completo: <input type="text" id="nome" size="100" ><br>
-    <br>Data de Nascimento: <input type="date" id="datanasc" size="50" ><br>
-    <br>CPF: <input type="text" id="cpf" size="50"><br>
-    <br>RG: <input type="text" id="RG" size="50"><br>
-    <br>Nome da Mãe: <input type="text" id="nomeMãe" size="50"><br>
-    <br>Endereço: <input type="text" id="endereco" size="50" ><br>
-    <br>Bairro: <input type="text" id="bairro" size="50"><br>
-    <br>Telefone (Fixo):<input type="text" id="telefoneFixo" size="50" > Telefone (Celular):  <input type="text" id="telefoneCelular" size="50"><br>
-    <br>E-mail: <input type="email" size="50"><br><br>
+    <br>Nome Completo: <input type="text" id="nome" style="width:500px" ><br>
+    <br>Data de Nascimento: <input type="date" id="datanasc" style="width:500px" ><br>
+    <br>CPF: <input type="text" id="cpf" style="width:500px"><br>
+    <br>RG: <input type="text" id="RG" style="width:500px"><br>
+    <br>Nome da Mãe: <input type="text" id="nomeMãe" style="width:500px"><br>
+    <br>Endereço: <input type="text" id="endereco" style="width:500px" ><br>
+    <br>Bairro: <input type="text" id="bairro" style="width:500px"><br>
+    <br>Telefone (Fixo):<input type="text" id="telefoneFixo" style="width:200px" > Telefone (Celular):  <input type="text" id="telefoneCelular" style="width:200px"><br>
+    <br>E-mail: <input type="email" style="width:500px"><br><br>
 
     <input type="submit" value="Cadastrar" name="btnCadastro" />
 
