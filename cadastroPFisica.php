@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="css\style.css" />
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"/>
   <?php include("header.php"); ?>
+  <?php include("menuSuperior.php"); ?>
+
 
 </head>
 
