@@ -16,7 +16,7 @@
     <fieldset><h2> Cadastro de Clientes Pessoa Jurídica</h2>
 
     <br>Razão Social <input type="text" style="width:500px" id="razaoSocial" name="input" ><br>
-    <br>Nome Fantasia <input type="text" style="width:500px; margin-left" id="nomeFantasia" name="input"  ><br>
+    <br>Nome Fantasia <input type="text" style="width:500px" id="nomeFantasia" name="input"  ><br>
     <br>CNPJ: <input type="text" style="width:500px" id="cpf" name="input"  ><br>
     <br>Endereço: <input type="text" style="width:500px" id="endereco" name="input"  ><br>
     <br>Bairro: <input type="text" style="width:500px" id="bairro" name="input" ><br>

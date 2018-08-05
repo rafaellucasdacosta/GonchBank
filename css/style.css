@@ -98,7 +98,7 @@ input[name="btnCadastro"]{
 }
 
 
-label.input{
-  display: inline-block;
-  width: 90px;
+input[name="input"]{
+  
+
 }
