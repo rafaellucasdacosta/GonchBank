@@ -10,7 +10,16 @@
 </head>
 <main>
   <body>
-    
+        <div class="fancy">
+
+        <fieldset>
+            <h2> Pagamentos </h2><BR>
+          <h4>Digite abaixo o número do código de barra para pagamentos:
+</h4><BR>
+          <input type="text" name="cod-barras"></input>
+
+      </fieldset>
+      </div>
   </body>
   <?php include("footer.php"); ?>
   </html>
