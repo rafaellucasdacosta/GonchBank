@@ -11,14 +11,21 @@
 <main>
   <body>
         <div class="fancy">
-
-        <fieldset>
+          <div class="box">
             <h2> Pagamentos </h2><BR>
-          <h4>Digite abaixo o número do código de barra para pagamentos:
-</h4><BR>
-          <input type="text" name="cod-barras"></input>
+          <h4>Digite abaixo o número do código de barra para pagamentos:</h4><BR>
+          <input type="text" name="cod-barras"></input><br><br>
 
-      </fieldset>
+          _____________________<br><br>
+
+          <strong> Aqui você poder pagar</strong><br><br>
+          Água, Luz, Telefone, Gás<br>
+          Boletos de CObrança<br>
+          Tributos via código de barras<br>
+
+
+
+    </div>
       </div>
   </body>
   <?php include("footer.php"); ?>
