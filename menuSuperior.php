@@ -62,8 +62,7 @@
 
               <li><a href="#"><strong>Cadastrar-se</strong></a>
                   <ul>
-                        <li><a href="cadastroPFisica.php"><strong>Pessoa Física</strong></a></li>
-                        <li><a href="cadastroPJuridica.php"><strong>Pessoa Jurídica</strong></a></li>
+                        <li><a href="cadastro-cliente.php"><strong>Pessoa Física</strong></a></li>
                   </ul>
               </li>
           <li><a href="#"><strong>Serviços</strong></a></li>
