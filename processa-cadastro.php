@@ -17,12 +17,16 @@
   $telefone_adc = $_POST['telefone_adc'];
   $email = $_POST['email'];
 
+  session_start();
+
+    $_SESSION['tipo_cliente'] = $tipo_cliente;
+
   $sql = "INSERT INTO clientes (nome, dt_nasc, tipo_cliente, cpf_cnpj, pais, cep, cidade, estado, bairro, rua, numero, telefone, telefone_adc, email)
     VALUES ('$nome','$dataNasc','$tipo_cliente','$cpf_cnpj','$pais','$cep','$cidade','$estado','$bairro','$rua','$numero', '$telefone', '$telefone_adc','$email')";
     $execSQL = mysqli_query($conn, $sql);
 
     if ($execSQL) {
-      echo "<script language'javascript' type='text/javascript'>alert('Cadastro efetuado!');window.location.href='index.php';</script>";
+      echo "<script language'javascript' type='text/javascript'>alert('Cadastro efetuado!');window.location.href='cadastro-conta.php';</script>";
     }
     else{
       echo "erro";
