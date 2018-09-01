@@ -21,33 +21,12 @@ form{
   margin-top: 15px;
 }
 
-
-input[type="date"]{
-  width: 120px;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: absolute;
-	left: 280px;
-}
-
-
-input[type="email"]{
-  width: 400px;
-  height: 30px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: absolute;
-	left: 280px;
-}
-
 input[type="text"]{
-  width: 400px;
-  height: 30px;
+  width: 85px;
+  height: 25px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  position: absolute;
-	left: 280px;
+  box-sizing: border-box;
 }
 
 input[type="submit"]{
@@ -101,8 +80,8 @@ input[type="submit"]{
 .fancy {
   background-color: #d7d4dd;
   width: 1220px;
-  margin: 100px auto;
-  border:3px solid;
+  margin: 50px auto;
+  border:1px solid;
   text-align: margin-left;
 }
 
@@ -118,21 +97,20 @@ input[name="btnCadastro"]{
   float: right;
 }
 
-input[name="cod-barras"]{
-  width: 85px;
-  height: 25px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 
+input[name="cod-barras"]{
+  position: center;
 }
 
-table{
+.box {
+    margin: 30px;
+    text-align: center;
+}
 
-  text-align: center;
+table {
   width: 600px;
 }
 
-.box-saldo{
-  margin: 50px;
+input[name="cod-barras"]{
+  width: 600px;
 }
