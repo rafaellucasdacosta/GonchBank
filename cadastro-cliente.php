@@ -11,15 +11,15 @@
 <body>
   <form action="processa-cadastro-conta.php" method="post">
     <div class="fancy">
-      <fieldset><h2> Cadastro de contas</h2>
+      <fieldset><h2> Cadastro de contas</h2><br>
         <label>Tipo de Conta: </label>
         <?php session_start();
         $tipo_cliente = $_SESSION['tipo_cliente'];
         echo " " . $tipo_cliente;
         ?>
-        <br>
+        <br><br>
         <label>Titular 1</label><br>
-        <input type="text" id="titular1" name="titular1"/><br>
+        <input type="text" id="titular1" name="titular1" size="100"/><br>
         <label>CPF do titular 1</label><br>
         <input type="text" id="cpf_titular1" name="cpf_titular1"/><br>
         <label>Titular 2</label><br>

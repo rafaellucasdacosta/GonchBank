@@ -20,9 +20,50 @@ label{
 form{
   margin-top: 15px;
 }
-
 input[type="text"]{
   width: 85px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[id="titular1"]{
+  width: 300px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[id="cpf_titular1"]{
+  width: 300px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[id="cpf_titular2"]{
+  width: 300px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[id="caixa"]{
+  width: 85px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[id="titular2"]{
+  width: 300px;
   height: 25px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -115,4 +156,18 @@ table {
 
 input[name="cod-barras"]{
   width: 600px;
+}
+
+.transf-esq{
+  float: left;
+  width: 300px;
+  border: 3px ;
+  padding: 10px;
+}
+
+.transf-dir{
+  float: right;
+  width: 300px;
+  border: 3px ;
+  padding: 10px;
 }
