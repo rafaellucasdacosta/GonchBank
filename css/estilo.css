@@ -2,6 +2,7 @@
   color: #fff;
   background-color: #1982c4;
   border-color: #007bff;
+  margin-top: 30px;
 }
 
 .btn-primary:hover {
@@ -21,7 +22,7 @@
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
+.show .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #0062cc;
   border-color: #005cbf;
@@ -33,10 +34,31 @@
 }
 
 .container {
-  background-color: #f2e94e;
+  background-color: white;
   width: 100%;
+  height: 400px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 60px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.form-login-heading{
+  margin-top: 30px;
+  text-align: center;
+}
+
+#senha{
+  margin-top: 20px;
+}
+
+#lembrar-se{
+  margin-top: 20px;
+}
+
+input[name="login"]{
+  margin-top: 35px;
 }

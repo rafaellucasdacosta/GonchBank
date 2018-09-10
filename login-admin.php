@@ -62,12 +62,22 @@ endif;
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
   </head>
   <body>
-    <div class="container">
       <nav class="navbar sticky-top navbar-light bg-light">
     <a class="navbar-brand" href="index.php">Página inicial</a>
   </nav>
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="form-login">
+
+    <div class="container">
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="form-login">
         <h2 class="form-login-heading">Login Administrativo</h2>
+        <label for="login" class="sr-only">Login</label>
+        <input type="text" name="login" id="login" class="form-control" placeholder="Login" >
+        <label for="senha" class="sr-only">Senha</label>
+        <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" >
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="lembrar-se" id="lembrar-se" value="esqueci"> Lembrar Senha
+          </label>
+        </div>
         <?php 
         if(!empty($erros)):
           foreach($erros as $erro):
@@ -75,15 +85,6 @@ endif;
           endforeach;
         endif;
         ?>
-        <label for="login" class="sr-only">Login</label>
-        <input type="text" name="login" class="form-control" placeholder="Login" >
-        <label for="senha" class="sr-only">Senha</label>
-        <input type="password" name="senha" class="form-control" placeholder="Senha" >
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="lembrar-se" value="esqueci"> Lembrar Senha
-          </label>
-        </div>
         <input type="submit" name="btn-entrar" class="btn btn-lg btn-primary btn-block" value="Entrar">
       </form>
     </div>
