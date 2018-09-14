@@ -20,15 +20,15 @@ if(isset($_POST['btn-entrar'])):
   if(empty($login) or empty($senha)):
     $erros[] = "<li> O campo login/senha precisa ser preenchido </li>";
   else:
-    // 105 OR 1=1 
+    // 105 OR 1=1
       // 1; DROP TABLE teste
 
     $sql = "SELECT login FROM administrativo WHERE login = '$login'";
-    $resultado = mysqli_query($conn, $sql);    
+    $resultado = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($resultado) > 0):
     $sql = "SELECT senha FROM administrativo WHERE senha = '$senha'";
-    $resultado = mysqli_query($conn, $sql);           
+    $resultado = mysqli_query($conn, $sql);
     $sql = "SELECT * FROM administrativo WHERE login = '$login' AND senha = '$senha'";
 
 
@@ -78,7 +78,7 @@ endif;
             <input type="checkbox" name="lembrar-se" id="lembrar-se" value="esqueci"> Lembrar Senha
           </label>
         </div>
-        <?php 
+        <?php
         if(!empty($erros)):
           foreach($erros as $erro):
             echo $erro;
