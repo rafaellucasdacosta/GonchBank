@@ -1,3 +1,9 @@
+<?php
+require_once('verifica-login.php');
+require_once('conexao.php');
+$login = "$auth_login";
+?>
+
 <html lang="pt-br">
 <heah>
   <meta charset="UTF-8">
@@ -6,9 +12,12 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"/>
   <?php include("header.php"); ?>
     <?php include("menuSuperior.php"); ?>
-
 </head>
 <body>
+ <p> Bem vindo, </P>
+   <?php
+      echo $login;
+    ?>
   <form action="processa-cadastro-conta.php" method="post">
     <div class="fancy">
       <fieldset><h2> Cadastro de contas</h2><br>
