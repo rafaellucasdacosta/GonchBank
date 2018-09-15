@@ -40,7 +40,7 @@ if(isset($_POST['btn-entrar'])):
         mysqli_close($conn);
         $_SESSION['logado'] = true;
         $_SESSION['id_usuario'] = $dados['id'];
-        header('Location: index2.php');
+        header('Location: cadastro.php');
       else:
         $erros[] = "<li> Usuário e senha não conferem </li>";
       endif;
@@ -98,6 +98,8 @@ endif;
   <!-- Theme style  -->
   <link rel="stylesheet" href="css/style.css">
 
+  <link rel="stylesheet" href="css/signin.css">
+
   <!-- Modernizr JS -->
   <script src="js/modernizr-2.6.2.min.js"></script>
   <!-- FOR IE9 below -->
@@ -110,73 +112,58 @@ endif;
 
   <div class="colorlib-loader"></div>
 
-  <div id="page">
-    <nav class="colorlib-nav" role="navigation">
-      <div class="top-menu">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2">
-              <div id="colorlib-logo"><a href="index.html">Gonch<span>Bank</span></a></div>
-            </div>
-            <div class="col-md-10 text-right menu-1">
-              <ul>
-                <li class="active"><a href="index.php">Página Inicial</a></li>
-                <li class="has-dropdown">
-                  <ul class="dropdown">
-                    <li><a href="#">menu 1</a></li>
-                    <li><a href="#">menu 2</a></li>
-                    <li><a href="#">menu 3</a></li>
-                    <li><a href="#">menu 4</a></li>
-                  </ul>
-                </li>
-                <li><a href="about.html">Sobre</a></li>
-                <li><a href="contact.html">Contato</a></li>
-                <li class="btn-cta"><a href="login-admin.php"><span>Acesso administrativo</span></a></li>
-                <!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-              </ul>
-            </div>
-          </div>
+  <div class="colorlib-loader"></div>
 
-        </div>
+	<div id="page">
+	<nav class="colorlib-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div id="colorlib-logo"><a href="index.html">Gonch<span>Bank</span></a></div>
+					</div>
+					<div class="col-md-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="index.php">Página Inicial</a></li>
+							<li class="has-dropdown">
+								<ul class="dropdown">
+									<li><a href="#">menu 1</a></li>
+									<li><a href="#">menu 2</a></li>
+									<li><a href="#">menu 3</a></li>
+									<li><a href="#">menu 4</a></li>
+								</ul>
+							</li>
+							<li><a href="about.html">Sobre</a></li>
+							<li><a href="contact.html">Contato</a></li>
+              <!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+    <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <h1 class="h3 mb-3 font-weight-normal">Login Administrativo</h1>
+      <?php
+      if(!empty($erros)):
+        foreach($erros as $erro):
+          echo $erro;
+        endforeach;
+      endif;
+      ?>
+      <label for="inputEmail" class="sr-only">Login</label>
+      <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required autofocus>
+      <label for="inputPassword" class="sr-only">Senha</label>
+      <input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Lembrar-me
+        </label>
       </div>
-    </nav>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto centered">
-          <div class="card card-signin my-5">
-            <div class="card-body">
-              <?php
-              if(!empty($erros)):
-                foreach($erros as $erro):
-                  echo $erro;
-                endforeach;
-              endif;
-              ?>
-              <h5 class="card-title text-center">Login Administrativo</h5>
-              <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <div class="form-label-group">
-                  <input type="text" id="inputEmail" name="login" class="form-control" placeholder="Login" required autofocus>
-                  <label for="inputEmail">Login</label>
-                </div>
-
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
-                  <label for="inputPassword">Senha</label>
-                </div>
-
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Lembrar Senha</label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" name="btn-entrar" type="submit">Entrar</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+      <button class="btn btn-lg btn-primary btn-block" name="btn-entrar" type="submit">Entrar</button>
+    </form>
+    <br><br>
     <footer id="colorlib-footer" role="contentinfo">
       <div class="container">
       </div>
@@ -188,10 +175,8 @@ endif;
           </p>
         </div>
       </div>
-
     </div>
   </footer>
-</div>
 
 <div class="gototop js-top">
   <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>

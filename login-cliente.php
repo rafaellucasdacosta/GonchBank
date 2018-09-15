@@ -1,158 +1,190 @@
-<?php
-// Conexão
-require_once 'conexao.php';
-
-// Sessão
-session_start();
-
-// Botão enviar
-if(isset($_POST['btn-entrar'])):
-  $erros = array();
-  $login = mysqli_escape_string($conn, $_POST['login']);
-  $senha = mysqli_escape_string($conn, $_POST['senha']);
-
-  if(isset($_POST['lembrar-senha'])):
-
-    setcookie('login', $login, time()+3600);
-    setcookie('senha', md5($senha), time()+3600);
-  endif;
-
-  if(empty($login) or empty($senha)):
-    $erros[] = "<li> O campo login/senha precisa ser preenchido </li>";
-  else:
-    // 105 OR 1=1
-      // 1; DROP TABLE teste
-
-    $sql = "SELECT login FROM administrativo WHERE login = '$login'";
-    $resultado = mysqli_query($conn, $sql);
-
-    if(mysqli_num_rows($resultado) > 0):
-    $sql = "SELECT senha FROM administrativo WHERE senha = '$senha'";
-    $resultado = mysqli_query($conn, $sql);
-    $sql = "SELECT * FROM administrativo WHERE login = '$login' AND senha = '$senha'";
-
-
-
-    $resultado = mysqli_query($conn, $sql);
-
-      if(mysqli_num_rows($resultado) == 1):
-        $dados = mysqli_fetch_array($resultado);
-        mysqli_close($conn);
-        $_SESSION['logado'] = true;
-        $_SESSION['id_usuario'] = $dados['id'];
-        header('Location: index.php');
-      else:
-        $erros[] = "<li> Usuário e senha não conferem </li>";
-      endif;
-
-    else:
-      $erros[] = "<li> Usuário inexistente </li>";
-    endif;
-
-  endif;
-
-endif;
-?>
-
-<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-	<title>Login V19</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Banco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="css/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!-- Owl Carousel  -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="css/flexslider.css">
+  <!-- Flaticons  -->
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/signin.css">
+
+  <!-- Modernizr JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+
 </head>
 <body>
 
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-33">
-						Account Login
-					</span>
+  <div class="colorlib-loader"></div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
-						<span class="focus-input100-1"></span>
-						<span class="focus-input100-2"></span>
+  <div class="colorlib-loader"></div>
+
+	<div id="page">
+	<nav class="colorlib-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div id="colorlib-logo"><a href="index.php">Gonch<span>Bank</span></a></div>
 					</div>
-
-					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100-1"></span>
-						<span class="focus-input100-2"></span>
+					<div class="col-md-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="index.php">Página Inicial</a></li>
+							<li><a href="#pessoaFisica">Pessoa Física</a></li>
+							<li><a href="#pessoaJuridica">Pessoa Jurídica</a></li>
+              <!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
+						</ul>
 					</div>
-
-					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
-							Sign in
-						</button>
-					</div>
-
-					<div class="text-center p-t-45 p-b-4">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2 hov1">
-							Username / Password?
-						</a>
-					</div>
-
-					<div class="text-center">
-						<span class="txt1">
-							Create an account?
-						</span>
-
-						<a href="#" class="txt2 hov1">
-							Sign up
-						</a>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
-	</div>
+	</nav>
+
+      <section id="pessoaFisica">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-14 mx-auto">
+              <h2>Pessoa física</h2>
+              <p class="lead">Aqui você pode acessar sua conta de uso pessoal</p>
+              <ul>
+                <form class="form-signin" action"processa-login-pf.php" method="POST">
+                      <h1 class="h3 mb-3 font-weight-normal">Insira as informações da conta</h1>
+                      <?php
+                      if(!empty($erros)):
+                        foreach($erros as $erro):
+                          echo $erro;
+                        endforeach;
+                      endif;
+                      ?>
+                      <label for="inputEmail" class="sr-only">Numero da conta</label>
+                      <input type="text" id="inputLogin" name="numero_conta" class="form-control" placeholder="Número da conta" required autofocus>
+                      <label for="inputPassword" class="sr-only">Senha</label>
+                      <input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
+                      <div class="checkbox mb-3">
+                        <label>
+                          <!-- <input type="checkbox" value="remember-me"> Lembrar-me -->
+                        </label>
+                      </div>
+                      <button class="btn btn-lg btn-primary btn-block" name="btn-entrar" type="submit">Entrar</button>
+                    </form>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pessoaJuridica" class="bg-light">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-14 mx-auto">
+              <h2>Pessoa Jurídica</h2>
+              <p class="lead">Aqui você pode acessar sua conta empresarial</p>
+              <ul>
+                <form class="form-signin" action"processa-login-pj.php" method="POST">
+                      <h1 class="h3 mb-3 font-weight-normal">Insira as informações da conta</h1>
+                      <?php
+                      if(!empty($erros)):
+                        foreach($erros as $erro):
+                          echo $erro;
+                        endforeach;
+                      endif;
+                      ?>
+                      <label for="inputEmail" class="sr-only">Numero da conta</label>
+                      <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Número da conta" required autofocus>
+                      <label for="inputPassword" class="sr-only">Senha</label>
+                      <input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
+                      <div class="checkbox mb-3">
+                        <label>
+                          <!-- <input type="checkbox" value="remember-me"> Lembrar-me -->
+                        </label>
+                      </div>
+                      <button class="btn btn-lg btn-primary btn-block" name="btn-entrar" type="submit">Entrar</button>
+                    </form>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
+    <footer id="colorlib-footer" role="contentinfo">
+      <div class="container">
+      </div>
+      <div class="row copyright">
+        <div class="col-md-12 text-center">
+          <p>
+            <small class="block">&copy; 2018 LawFirm. All Rights Reserved. Created by <a href="https://colorlib.com/" target="_blank">Colorlib</a></small>
+            <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Stellar Parallax -->
+<script src="js/jquery.stellar.min.js"></script>
+<!-- Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Flexslider -->
+<script src="js/jquery.flexslider-min.js"></script>
+<!-- countTo -->
+<script src="js/jquery.countTo.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="js/main.js"></script>
 
 </body>
 </html>

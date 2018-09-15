@@ -1,120 +1,142 @@
-<html lang="pt-br">
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Banco</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
 
-  <head>
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
 
-    <title>Scrolling Nav - Start Bootstrap Template</title>
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
 
-    <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-  </head>
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
 
-  <body id="page-top">
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">BANCO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#page-top">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
-            </li>
-            <li class="nav-item">
-              <a href="login-admin.php" class="btn btn-primary btn-sm" role="button">Acesso restrito</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+	</head>
+	<body>
 
-    <header class="bg-primary text-white">
-      <div class="container text-center">
-        <h1>Bem vindo ao BANCO</h1>
-        <p class="lead">Seu banco online</p>
-        <a href="login-cliente.php" class="btn btn-success btn-lg" role="button">Acesse sua conta</a>
-      </div>
-    </header>
+	<div class="colorlib-loader"></div>
 
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Sobre esta página</h2>
-            <p class="lead">Esta página pertence à equipe 3 e é um projeto da disciplina de PA III</p>
-            <ul>
-              <li>O projeto consiste em um Sistema Web para Banco</li>
-              <li>Estamos utilizando a pilha LAMP (Linux, Apache, Mysqlm e PHP)</li>
-              <li>No front-end está sendo utilizado o Bootstrap</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+	<div id="page">
+	<nav class="colorlib-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div id="colorlib-logo"><a href="index.html">Gonch<span>Bank</span></a></div>
+					</div>
+					<div class="col-md-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="index.php">Página Inicial</a></li>
+							<li><a href="about.html">Sobre</a></li>
+							<li><a href="contact.html">Contato</a></li>
+							<li class="btn-cta"><a href="login-admin.php"><span>Acesso administrativo</span></a></li>
+							<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
+						</ul>
+					</div>
+				</div>
 
-    <section id="services" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Serviços oferecidos</h2>
-            <p class="lead">Em nossa página é possível acessar a conta como cliente do banco e realizar pagamentos e transferencias</p>
-          </div>
-        </div>
-      </div>
-    </section>
+			</div>
+		</div>
+	</nav>
 
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Contate-nos</h2>
-            <p class="lead">Chayene Goncharenco            (43)99999-9999</p>
-            <p class="lead">Natielli                       (43)99999-9999</p>
-            <p class="lead">Rafael Lucas                   (43)99999-9999</p>
-            <p class="lead">Rafael Macedo                  (43)99999-9999</p>
-          </div>
-        </div>
-      </div>
-    </section>
+	<aside id="colorlib-hero" class="js-fullheight">
+		<div class="flexslider js-fullheight">
+			<ul class="slides">
+		   	<li style="background-image: url(images/img_bg_1.jpg);">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="row">
+			   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
+			   				<div class="slider-text-inner">
+			   					<h1>Bem vindo ao GonchBank</h1>
+									<h2>Este site é um projeto de um Sistema Web para Banco da disciplina de PA III</h2>
+									<p><a class="btn btn-primary btn-lg" href="login-cliente.php">Acessar</a></p>
+			   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+	</aside>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; 2018 Equipe 3 Sistemas de informação - UENP CLM</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+	<footer id="colorlib-footer" role="contentinfo">
+		<div class="container">
+			</div>
+		<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+					<small class="block">&copy; 2018 LawFirm. All Rights Reserved. Created by <a href="https://colorlib.com/" target="_blank">Colorlib</a></small>
+					<small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+					</p>
+				</div>
+			</div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		</div>
+	</footer>
+	</div>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
 
-    <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
 
-  </body>
-
+	</body>
 </html>

@@ -2,7 +2,7 @@
   require_once('conexao.php');
   $numero_conta = $_POST['numero_conta'];
   $senha = $_POST['senha'];
-  $query = "SELECT numero_conta, titular1, senha, saldo FROM contas WHERE numero_conta = '$numero_conta' and tipo = '1'";
+  $query = "SELECT numero_conta, titular1, senha, saldo FROM contas WHERE numero_conta = '$numero_conta' and tipo = '2'";
   if ($result = $conn->query($query)) {
     if ($row = $result->fetch_object()){
       if (strcmp($row->senha, $senha)==0){
