@@ -27,7 +27,7 @@ $sql = "INSERT INTO cliente (tipo, cpf_cnpj, nome, cep, cidade, estado, endereco
   $execSQL = mysqli_query($conn, $sql);
 
   if ($execSQL) {
-    echo "ok";
+    echo "<script language'javascript' type='text/javascript'>alert('Cadastro Efetuado');window.location.href='cadastro-conta.php';</script>";
   }
   else{
     echo "erro";
