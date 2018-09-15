@@ -15,9 +15,10 @@
        <div class="card card-signin my-5">
          <div class="card-body">
            <h5 class="card-title text-center">Cadastre</h5>
+           <p>* Para cadastro de Pessoa Jurídica deverá ter no mínimo 2 titulares. </P>
         <div class="form-label-group">
           <label>Tipo de conta: </label>
-          <input type="text" class="form-control" name="tipo"><br>
+          <input type="text" class="form-control" name="tipo" placeholder="01 - Física / 02 - Jurídica"><br>
           <label>CPF/CNPJ: </label>
           <input type="text" class="form-control" name="cpf_cnpj"><br>
           <label>Nome: </label><br>
@@ -34,10 +35,10 @@
           <input type="text" class="form-control " name="bairro"><br>
           <label>Numero: </label>
           <input type="text" class="form-control" name="numero"><br>
-          <label>Tel: </label>
-          <input type="text" class="form-control" name="telefone" ><br>
+          <label>Telefone: </label>
+          <input type="text" class="form-control" name="telefone" placeholder="Sem o DDD" ><br>
           <label>Celular: </label>
-          <input type="text" class="form-control" name="celular"><br>
+          <input type="text" class="form-control" name="celular"  placeholder="Sem o DDD" ><br>
           <label>E-mail: </label>
           <input type="text" class="form-control" name="email" ><br>
           <label>1º Titular: </label>
