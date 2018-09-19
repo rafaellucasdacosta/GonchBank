@@ -34,7 +34,7 @@ if(isset($_POST['btn-entrar'])):
         session_start();
         $_SESSION['logado'] = true;
         $_SESSION['login'] = $dados['login'];
-        header('Location: cadastro-cliente.php');
+        header('Location: cadastro.php');
       else:
         $erros[] = "<li> Usuário e senha não conferem </li>";
       endif;

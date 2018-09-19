@@ -1,8 +1,4 @@
-<?php
-require_once('verifica-login.php');
-require_once('conexao.php');
-$login = "$auth_login";
-?>
+
 
 <html lang="pt-br">
 <heah>
@@ -14,10 +10,7 @@ $login = "$auth_login";
     <?php include("menuSuperior.php"); ?>
 </head>
 <body>
- <p> Bem vindo, </P>
-   <?php
-      echo $login;
-    ?>
+
   <form action="processa-cadastro-conta.php" method="post">
     <div class="fancy">
       <fieldset><h2> Cadastro de contas</h2><br>
@@ -28,7 +21,7 @@ $login = "$auth_login";
         ?>
         <br><br>
         <label>Titular 1</label><br>
-        <input type="text" id="titular1" name="titular1" size="100"/><br>
+        <input type="text" id="titular1" name="titular1"/><br>
         <label>CPF do titular 1</label><br>
         <input type="text" id="cpf_titular1" name="cpf_titular1"/><br>
         <label>Titular 2</label><br>
