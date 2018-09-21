@@ -1,7 +1,7 @@
 <?php
 require_once('verifica-login.php');
 require_once('conexao.php');
-$login = "$auth_login";
+$nome = "$auth_nome";
 ?>
 <head>
 <meta charset="utf-8">
@@ -58,7 +58,7 @@ $login = "$auth_login";
 
      <p> Bem vindo, </P>
        <?php
-          echo $login;
+          echo $nome;
         ?>
     <form name="form" action="processa-cadastro.php" method="POST">
       <br><br>

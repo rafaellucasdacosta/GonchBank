@@ -1,26 +1,24 @@
 <?php
-// Conexão
+
 require_once 'conexao.php';
+require_once 'util.php';
 
-// Botão enviar
 if(isset($_POST['btn-entrar'])):
-  $erros = array();
-  $login = mysqli_escape_string($conn, $_POST['login']);
-  $senha = mysqli_escape_string($conn, $_POST['senha']);
-
-  if(empty($login) or empty($senha)):
-    $erros[] = "<li> O campo login/senha precisa ser preenchido </li>";
+  if(empty($_POST['cpf']) or empty($_POST['senha'])):
+    $erros[] = "<li> Os campos CPF e Senha precisam ser preenchidos </li>";
   else:
-    // 105 OR 1=1
-    // 1; DROP TABLE teste
+    $cpf = mysqli_escape_string($conn, $_POST['cpf']);
+    $senha = mysqli_escape_string($conn, $_POST['senha']);
+    $cpf_valido=validaCPF($cpf);
 
-    $sql = "SELECT login FROM administrativo WHERE login = '$login'";
+
+    $sql = "SELECT cpf FROM administrativo WHERE cpf = '$cpf_valido'";
     $resultado = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($resultado) > 0):
       $sql = "SELECT senha FROM administrativo WHERE senha = '$senha'";
       $resultado = mysqli_query($conn, $sql);
-      $sql = "SELECT * FROM administrativo WHERE login = '$login' AND senha = '$senha'";
+      $sql = "SELECT * FROM administrativo WHERE cpf = '$cpf_valido' AND senha = '$senha'";
 
 
 
@@ -33,8 +31,8 @@ if(isset($_POST['btn-entrar'])):
         // Sessão
         session_start();
         $_SESSION['logado'] = true;
-        $_SESSION['login'] = $dados['login'];
-        header('Location: cadastro.php');
+        $_SESSION['nome'] = $dados['nome'];
+        header('Location: index.php');
       else:
         $erros[] = "<li> Usuário e senha não conferem </li>";
       endif;
@@ -48,155 +46,206 @@ if(isset($_POST['btn-entrar'])):
 endif;
 ?>
 
-<html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
+
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Banco</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <!-- Facebook and Twitter integration -->
-  <meta property="og:title" content=""/>
-  <meta property="og:image" content=""/>
-  <meta property="og:url" content=""/>
-  <meta property="og:site_name" content=""/>
-  <meta property="og:description" content=""/>
-  <meta name="twitter:title" content="" />
-  <meta name="twitter:image" content="" />
-  <meta name="twitter:url" content="" />
-  <meta name="twitter:card" content="" />
+  <title>Gonch Bank - Acesso administrativo</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="css/animate.css">
-  <!-- Icomoon Icon Fonts-->
-  <link rel="stylesheet" href="css/icomoon.css">
-  <!-- Bootstrap  -->
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- Custom styles for this template -->
+  <link href="css/landing-page.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <!-- Flexslider  -->
-  <link rel="stylesheet" href="css/flexslider.css">
-  <!-- Flaticons  -->
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#cpf").mask("000.000.000-00")
+    $("#cnpj").mask("00.000.000/0000-00")
+    $("#telefone").mask("(00) 0000-0000")
+    $("#salario").mask("999.999.990,00", {reverse: true})
+    $("#cep").mask("00.000-000")
+    $("#dataNascimento").mask("00/00/0000")
 
-  <!-- Theme style  -->
-  <link rel="stylesheet" href="css/style.css">
+    $("#rg").mask("999.999.999-W", {
+      translation: {
+        'W': {
+          pattern: /[X0-9]/
+        }
+      },
+      reverse: true
+    })
 
-  <link rel="stylesheet" href="css/signin.css">
+    var options = {
+      translation: {
+        'A': {pattern: /[A-Z]/},
+        'a': {pattern: /[a-zA-Z]/},
+        'S': {pattern: /[a-zA-Z0-9]/},
+        'L': {pattern: /[a-z]/},
+      }
+    }
 
-  <!-- Modernizr JS -->
-  <script src="js/modernizr-2.6.2.min.js"></script>
-  <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
-  <script src="js/respond.min.js"></script>
-  <![endif]-->
+    $("#placa").mask("AAA-0000", options)
 
+    $("#codigo").mask("AA.LLL.0000", options)
+
+    $("#celular").mask("(00) 0000-00009")
+
+    $("#celular").blur(function(event){
+      if ($(this).val().length == 15){
+        $("#celular").mask("(00) 00000-0009")
+      }else{
+        $("#celular").mask("(00) 0000-00009")
+      }
+    })
+  })
+  </script>
 </head>
+
 <body>
 
-  <div class="colorlib-loader"></div>
-
-  <div class="colorlib-loader"></div>
-
-	<div id="page">
-	<nav class="colorlib-nav" role="navigation">
-		<div class="top-menu">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-2">
-						<div id="colorlib-logo"><a href="index.html">Gonch<span>Bank</span></a></div>
-					</div>
-					<div class="col-md-10 text-right menu-1">
-						<ul>
-							<li class="active"><a href="index.php">Página Inicial</a></li>
-							<li class="has-dropdown">
-								<ul class="dropdown">
-									<li><a href="#">menu 1</a></li>
-									<li><a href="#">menu 2</a></li>
-									<li><a href="#">menu 3</a></li>
-									<li><a href="#">menu 4</a></li>
-								</ul>
-							</li>
-							<li><a href="about.html">Sobre</a></li>
-							<li><a href="contact.html">Contato</a></li>
-              <!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
-
-    <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      <h1 class="h3 mb-3 font-weight-normal">Login Administrativo</h1>
-      <?php
-      if(!empty($erros)):
-        foreach($erros as $erro):
-          echo $erro;
-        endforeach;
-      endif;
-      ?>
-      <label for="inputEmail" class="sr-only">Login</label>
-      <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required autofocus>
-      <label for="inputPassword" class="sr-only">Senha</label>
-      <input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Lembrar-me
-        </label>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="features-icons-icon d-flex">
+      <i class="icon-briefcase m-auto text-primary"></i>
+    <a class="navbar-brand" href="#"><span class="text-primary"> Gonch</span> Bank</a>
+  </div>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <div class="features-icons-icon d-flex">
+          <i class="icon-home m-auto text-primary"></i>
+          <a class="nav-link" href="index.php">Início <span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="features-icons-icon d-flex">
+          <i class="icon-info m-auto text-primary"></i>
+        <a class="nav-link" href="#">Sobre</a>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" name="btn-entrar" type="submit">Entrar</button>
-    </form>
-    <br><br>
-    <footer id="colorlib-footer" role="contentinfo">
-      <div class="container">
+      </li>
+      <li class="nav-item">
+        <div class="features-icons-icon d-flex">
+          <i class="icon-phone m-auto text-primary"></i>
+        <a class="nav-link" href="#">Contato</a>
       </div>
-      <div class="row copyright">
-        <div class="col-md-12 text-center">
-          <p>
-            <small class="block">&copy; 2018 LawFirm. All Rights Reserved. Created by <a href="https://colorlib.com/" target="_blank">Colorlib</a></small>
-            <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
-          </p>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- Login -->
+  <header class="masthead text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-15 col-xl-7 mx-auto">
+          <div class="card text-center">
+            <div class="card-header text-primary">
+              <h1>Acesso administrativo<h1>
+              <h5 class="text-dark">Entre em sua conta para gerenciar clientes</h5>
+            </div>
+            <div class="card-body">
+              <form class="mb-2" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="form-row text-center">
+                  <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
+                    <label>CPF</label>
+                    <input type="text" id="cpf" name="cpf" class="form-control form-control-lg text-center" placeholder="Insira o CPF" required autofocus><br>
+                  </div>
+                  <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
+                    <label>Senha</label>
+                    <input type="password" id="senha" name="senha" class="form-control form-control-lg text-center" placeholder="" required><br>
+                  </div>
+                  <div class="col-md-8 col-lg-15 col-xl-7 mx-auto text-danger">
+                    <?php
+                    if(!empty($erros)):
+                      foreach($erros as $erro):
+                        echo $erro;
+                      endforeach;
+                    endif;
+                    ?>
+                    <button type="submit" id="btn-entrar" name="btn-entrar" class="btn btn-block btn-lg btn-primary">Entrar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Rodapé -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#" class="text-primary">Sobre</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#" class="text-primary">Contato</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#" class="text-primary">Termos de Uso</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#"class="text-primary">Política de Privacidade</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Gonch Bank 2018. Todos os direitos reservados.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </footer>
 
-<div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-</div>
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<!-- jQuery Easing -->
-<script src="js/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="js/jquery.waypoints.min.js"></script>
-<!-- Stellar Parallax -->
-<script src="js/jquery.stellar.min.js"></script>
-<!-- Carousel -->
-<script src="js/owl.carousel.min.js"></script>
-<!-- Flexslider -->
-<script src="js/jquery.flexslider-min.js"></script>
-<!-- countTo -->
-<script src="js/jquery.countTo.js"></script>
-<!-- Magnific Popup -->
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script>
-<!-- Main -->
-<script src="js/main.js"></script>
-
+  <!-- Bootstrap core JavaScript
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+-->
 </body>
+
 </html>
