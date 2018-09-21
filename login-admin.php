@@ -32,7 +32,7 @@ if(isset($_POST['btn-entrar'])):
         session_start();
         $_SESSION['logado'] = true;
         $_SESSION['nome'] = $dados['nome'];
-        header('Location: index.php');
+        header('Location: administrativo.php');
       else:
         $erros[] = "<li> Usuário e senha não conferem </li>";
       endif;
@@ -128,7 +128,7 @@ endif;
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <div class="features-icons-icon d-flex">
       <i class="icon-briefcase m-auto text-primary"></i>
-    <a class="navbar-brand" href="#"><span class="text-primary"> Gonch</span> Bank</a>
+    <a class="navbar-brand" href="index.php"><span class="text-primary"> Gonch</span> Bank</a>
   </div>
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item active">
@@ -169,7 +169,7 @@ endif;
                 <div class="form-row text-center">
                   <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
                     <label>CPF</label>
-                    <input type="text" id="cpf" name="cpf" class="form-control form-control-lg text-center" placeholder="Insira o CPF" required autofocus><br>
+                    <input type="text" id="cpf" name="cpf" class="form-control form-control-lg text-center" placeholder="Insira seu CPF" required autofocus><br>
                   </div>
                   <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
                     <label>Senha</label>
@@ -217,7 +217,7 @@ endif;
               <a href="#"class="text-primary">Política de Privacidade</a>
             </li>
           </ul>
-          <p class="text-muted small mb-4 mb-lg-0">&copy; Gonch Bank 2018. Todos os direitos reservados.</p>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright (c) 2013-2018 Blackrock Digital LLC</p>
         </div>
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">
