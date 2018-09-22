@@ -1,5 +1,5 @@
 <?php
-  $conn = new mysqli("localhost", "root", "123456", "db_pa3");
+  $conn = new mysqli("localhost", "root", "123456", "sistema_banco");
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
