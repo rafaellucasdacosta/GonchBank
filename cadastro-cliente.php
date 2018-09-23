@@ -118,11 +118,11 @@
               <h5 class="text-dark">Preencha abaixo as informações do cliente</h5>
             </div>
             <div class="card-body">
-              <form class="mb-2" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+              <form class="mb-2" action="processa-cadastro-cliente.php" method="post">
                 <div class="form-row">
                   <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
-                   
-                                         
+
+
                     <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF" required autofocus><br>
                     <div class="row">
                       <div class="col-sm-6">
@@ -151,7 +151,7 @@
                     <input type="text" id="cep" name="cep" class="form-control" placeholder="CEP" required autofocus><br>
                   </div>
                 </div>
-                    
+
                     <div class="row">
                   <div class="col-sm-8">
                     <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade" required autofocus><br>
@@ -160,7 +160,7 @@
                     <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado" required autofocus><br>
                     </div>
                   </div>
-                                   
+
                     <div class="row">
                       <div class="col-sm-6">
                     <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone Fixo" required autofocus><br>

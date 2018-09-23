@@ -5,7 +5,7 @@
   $exibe = "<a class='nav-link'>$nome</a>"
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -79,7 +79,7 @@
             <h3>Cadastrar Cliente</h3>
             <p class="lead mb-0">Cadastre novos clientes que desejam abrir uma conta!</p>
           </div>
-          <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Cadastrar</button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro-cliente.php'">Cadastrar</button>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-0 mb-lg-3">
@@ -89,7 +89,7 @@
             <h3>Gerenciar Contas</h3>
             <p class="lead mb-0">Gerencie contas de clientes e habilite pagamentos de boletos!</p>
           </div>
-          <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Cadastrar</button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Gerenciar</button>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-0 mb-lg-3">
@@ -97,9 +97,9 @@
               <i class="icon-settings m-auto text-primary"></i>
             </div>
             <h3>Perfil</h3>
-            <p class="lead mb-0">Veja as informações do seu usuário e gerencie-as!</p>
+            <p class="lead mb-0">Altere as suas informações pessoais e de usuário!</p>
           </div>
-          <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Cadastrar</button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="location.href='cadastro.php'">Alterar</button>
         </div>
       </div>
     </div>
