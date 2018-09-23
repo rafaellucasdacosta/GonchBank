@@ -45,4 +45,25 @@ function validaCPF($cpf = null) {
 		return $cpf;
 	}
 }
+
+function fromPost($var){
+    if (isset($_POST[$var]))
+      return sanitize_unsafe($_POST[$var]);
+}
+function fromGet($var){
+   if (isset($_GET[$var]))
+      return sanitize_unsafe($_GET[$var]);
+}
+function isValid($var) {
+   return !empty(trim($var));
+}
+function getHtml($tag, $value, $attr=""){
+    return "<$tag $attr>$value</$tag>";
+}
+function li($value){
+     return getHtml("li",$value);
+}
+function ul($value){
+     return getHtml("ul",$value);
+ }
 ?>

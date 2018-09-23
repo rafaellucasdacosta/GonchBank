@@ -1,7 +1,7 @@
 <?php
 
 require_once 'conexao.php';
-require_once 'util.php';
+require_once 'validacao.php';
 
 if(isset($_POST['btn-entrar'])):
   if(empty($_POST['cpf']) or empty($_POST['senha'])):

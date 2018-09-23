@@ -75,36 +75,36 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <div class="features-icons-icon d-flex">
-      <i class="icon-briefcase m-auto text-primary"></i>
-    <a class="navbar-brand" href="index.php"><span class="text-primary"> Gonch</span> Bank</a>
-  </div>
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <div class="features-icons-icon d-flex">
-          <i class="icon-home m-auto text-primary"></i>
-          <a class="nav-link" href="index.php">Início <span class="sr-only">(current)</span></a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="features-icons-icon d-flex">
-          <i class="icon-info m-auto text-primary"></i>
-        <a class="nav-link" href="#">Sobre</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <div class="features-icons-icon d-flex">
+        <i class="icon-briefcase m-auto text-primary"></i>
+        <a class="navbar-brand" href="index.php"><span class="text-primary"> Gonch</span> Bank</a>
       </div>
-      </li>
-      <li class="nav-item">
-        <div class="features-icons-icon d-flex">
-          <i class="icon-phone m-auto text-primary"></i>
-        <a class="nav-link" href="#">Contato</a>
-      </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-home m-auto text-primary"></i>
+            <a class="nav-link" href="index.php">Início <span class="sr-only">(current)</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-info m-auto text-primary"></i>
+            <a class="nav-link" href="#">Sobre</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-phone m-auto text-primary"></i>
+            <a class="nav-link" href="#">Contato</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Login -->
   <header class="masthead text-center">
@@ -115,63 +115,70 @@
           <div class="card text-center">
             <div class="card-header text-primary">
               <h1>Cadastro<h1>
-              <h5 class="text-dark">Preencha abaixo as informações do cliente</h5>
-            </div>
-            <div class="card-body">
-              <form class="mb-2" action="processa-cadastro-cliente.php" method="post">
-                <div class="form-row">
-                  <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
+                <h5 class="text-dark">Preencha abaixo as informações do cliente</h5>
+              </div>
+              <div class="card-body">
+                <form class="mb-2" action="processa-cadastro-cliente.php" method="post">
+                  <div class="form-row">
+                    <div class="col-md-8 col-lg-15 col-xl-7 mx-auto">
 
 
-                    <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF" required autofocus><br>
-                    <div class="row">
-                      <div class="col-sm-6">
-                    <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required autofocus><br>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" id="conf_senha" name="conf_senha" class="form-control" placeholder="Confirme a senha" required autofocus><br>
-                  </div>
-                </div>
+                      <input type="text" id="cpf" name="cpf" class="form-control" placeholder="CPF" required autofocus><br>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required autofocus><br>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="password" id="conf_senha" name="conf_senha" class="form-control" placeholder="Confirme a senha" required autofocus><br>
+                        </div>
+                      </div>
 
-                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome Completo" required autofocus><br>
-                    <div class="row">
-                    <div class="col-sm-9">
-                    <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Endereço" required autofocus><br>
-                  </div>
-                  <div class="col-sm-3">
-                    <input type="text" id="numero" name="numero" class="form-control" placeholder="Nº" required autofocus><br>
-                  </div>
-                </div>
+                      <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome Completo" required autofocus><br>
+                      <div class="row">
+                        <div class="col-sm-9">
+                          <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Endereço" required autofocus><br>
+                        </div>
+                        <div class="col-sm-3">
+                          <input type="text" id="numero" name="numero" class="form-control" placeholder="Nº" required autofocus><br>
+                        </div>
+                      </div>
 
-                <div class="row">
-                  <div class="col-sm-6">
-                    <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro" required autofocus><br>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" id="cep" name="cep" class="form-control" placeholder="CEP" required autofocus><br>
-                  </div>
-                </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro" required autofocus><br>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" id="cep" name="cep" class="form-control" placeholder="CEP" required autofocus><br>
+                        </div>
+                      </div>
 
-                    <div class="row">
-                  <div class="col-sm-8">
-                    <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade" required autofocus><br>
-                  </div>
-                  <div class="col-sm-4">
-                    <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado" required autofocus><br>
+                      <div class="row">
+                        <div class="col-sm-8">
+                          <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade" required autofocus><br>
+                        </div>
+                        <div class="col-sm-4">
+                          <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado" required autofocus><br>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone Fixo" required autofocus><br>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" id="celular" name="celular" class="form-control" placeholder="Telefone Celular " required autofocus><br>
+                        </div>
+                      </div>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required autofocus><br>
                     </div>
-                  </div>
-
-                    <div class="row">
-                      <div class="col-sm-6">
-                    <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone Fixo" required autofocus><br>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="text" id="celular" name="celular" class="form-control" placeholder="Telefone Celular " required autofocus><br>
-                  </div>
-                </div>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required autofocus><br>
-
-                  </div>
+                    <?php
+                    session_start();
+                    $error = $_SESSION['error'];
+                    if (isset($error)){
+                      echo "<div class='error'>$error</div>";
+                    }
+                    unset($_SESSION['error']);
+                    ?>
                     <button type="submit" id="btn-entrar" name="btn-entrar" class="btn btn-block btn-lg btn-primary">Cadastrar</button>
                   </div>
                 </div>
